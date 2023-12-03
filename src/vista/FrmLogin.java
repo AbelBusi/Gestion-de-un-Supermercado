@@ -2,6 +2,8 @@ package vista;
 
 import controlador.CRT_USUARIOS;
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import modelo.USUARIO;
 
@@ -15,7 +17,16 @@ public class FrmLogin extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        this.setTitle("Login - SISTEMA DE VENTAS");
+        
+        
+        
+    }
+    
+    @Override
+    public Image getIconImage(){
+    
+        Image retValue=Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("img/megaMarket.png"));
+        return retValue;
     }
 
     
@@ -45,6 +56,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(164, 156, 152));

@@ -43,6 +43,7 @@ public class Reportes {
             parrafo.setFont(FontFactory.getFont("Tahoma", 18, Font.BOLD, BaseColor.DARK_GRAY));
             parrafo.add("Reporte de Clientes \n\n");
 
+            
             documento.open();
             //agregamos los datos
             documento.add(header);

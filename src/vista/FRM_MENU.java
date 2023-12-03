@@ -2,6 +2,8 @@ package vista;
 
 import controlador.Reportes;
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JDesktopPane;
 
 /**
@@ -37,6 +39,13 @@ public class FRM_MENU extends javax.swing.JFrame {
         
        
     }
+    
+    @Override
+    public Image getIconImage(){
+    
+        Image retValue=Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("img/producto.png"));
+        return retValue;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,12 +78,12 @@ public class FRM_MENU extends javax.swing.JFrame {
         Menu_reporteCategoria = new javax.swing.JMenuItem();
         MENU_ReporteProductos = new javax.swing.JMenuItem();
         MENU_ReporteVentas = new javax.swing.JMenuItem();
-        menu_historial = new javax.swing.JMenu();
-        MENU_VER_HISTORIAL = new javax.swing.JMenuItem();
         menu_cerrarSesion = new javax.swing.JMenu();
         MENU_cerrarSesion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
+        setIconImages(getIconImages());
 
         menu_usuario.setForeground(new java.awt.Color(0, 0, 0));
         menu_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario.png"))); // NOI18N
@@ -275,19 +284,6 @@ public class FRM_MENU extends javax.swing.JFrame {
 
         jMenuBar1.add(menu_reportes);
 
-        menu_historial.setForeground(new java.awt.Color(0, 0, 0));
-        menu_historial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/historial1.png"))); // NOI18N
-        menu_historial.setText("Historial");
-        menu_historial.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        menu_historial.setPreferredSize(new java.awt.Dimension(150, 50));
-
-        MENU_VER_HISTORIAL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/reporte1.png"))); // NOI18N
-        MENU_VER_HISTORIAL.setText("Ver Historial");
-        MENU_VER_HISTORIAL.setPreferredSize(new java.awt.Dimension(150, 50));
-        menu_historial.add(MENU_VER_HISTORIAL);
-
-        jMenuBar1.add(menu_historial);
-
         menu_cerrarSesion.setForeground(new java.awt.Color(0, 0, 0));
         menu_cerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion.png"))); // NOI18N
         menu_cerrarSesion.setText("Cerrar Sesion");
@@ -485,7 +481,6 @@ public class FRM_MENU extends javax.swing.JFrame {
     private javax.swing.JMenuItem MENU_ReporteClientes;
     private javax.swing.JMenuItem MENU_ReporteProductos;
     private javax.swing.JMenuItem MENU_ReporteVentas;
-    private javax.swing.JMenuItem MENU_VER_HISTORIAL;
     private javax.swing.JMenuItem MENU_cerrarSesion;
     private javax.swing.JMenuItem MENU_gestionarCategoria;
     private javax.swing.JMenuItem MENU_nuevaVenta;
@@ -497,7 +492,6 @@ public class FRM_MENU extends javax.swing.JFrame {
     private javax.swing.JMenu menu_cerrarSesion;
     private javax.swing.JMenu menu_cliente;
     private javax.swing.JMenu menu_facturar;
-    private javax.swing.JMenu menu_historial;
     private javax.swing.JMenuItem menu_nuevoUsuario;
     private javax.swing.JMenu menu_producto;
     private javax.swing.JMenu menu_reportes;
