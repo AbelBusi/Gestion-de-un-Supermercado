@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.Reportes;
 import java.awt.Dimension;
 import javax.swing.JDesktopPane;
 
@@ -95,6 +96,11 @@ public class FRM_MENU extends javax.swing.JFrame {
         gestionarUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/configuraciones.png"))); // NOI18N
         gestionarUsuarios.setText("Gestionar Usuarios");
         gestionarUsuarios.setPreferredSize(new java.awt.Dimension(150, 30));
+        gestionarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gestionarUsuariosActionPerformed(evt);
+            }
+        });
         menu_usuario.add(gestionarUsuarios);
 
         jMenuBar1.add(menu_usuario);
@@ -118,11 +124,21 @@ public class FRM_MENU extends javax.swing.JFrame {
         MENU_GestionarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/carrito.png"))); // NOI18N
         MENU_GestionarProducto.setText("Gestionar Productos");
         MENU_GestionarProducto.setPreferredSize(new java.awt.Dimension(200, 30));
+        MENU_GestionarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MENU_GestionarProductoActionPerformed(evt);
+            }
+        });
         menu_producto.add(MENU_GestionarProducto);
 
         MENU_Actualizar_stock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir.png"))); // NOI18N
         MENU_Actualizar_stock.setText("Actualizar Stock");
         MENU_Actualizar_stock.setPreferredSize(new java.awt.Dimension(200, 30));
+        MENU_Actualizar_stock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MENU_Actualizar_stockActionPerformed(evt);
+            }
+        });
         menu_producto.add(MENU_Actualizar_stock);
 
         jMenuBar1.add(menu_producto);
@@ -146,6 +162,11 @@ public class FRM_MENU extends javax.swing.JFrame {
         MENU_GestionarClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir.png"))); // NOI18N
         MENU_GestionarClientes.setText("Gestionar Clientes");
         MENU_GestionarClientes.setPreferredSize(new java.awt.Dimension(150, 50));
+        MENU_GestionarClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MENU_GestionarClientesActionPerformed(evt);
+            }
+        });
         menu_cliente.add(MENU_GestionarClientes);
 
         jMenuBar1.add(menu_cliente);
@@ -187,11 +208,21 @@ public class FRM_MENU extends javax.swing.JFrame {
         MENU_nuevaVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
         MENU_nuevaVenta.setText("Nueva Venta");
         MENU_nuevaVenta.setPreferredSize(new java.awt.Dimension(150, 50));
+        MENU_nuevaVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MENU_nuevaVentaActionPerformed(evt);
+            }
+        });
         menu_facturar.add(MENU_nuevaVenta);
 
         MENU_GestionarVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/categorias.png"))); // NOI18N
         MENU_GestionarVentas.setText("Gestionar Ventas");
         MENU_GestionarVentas.setPreferredSize(new java.awt.Dimension(150, 50));
+        MENU_GestionarVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MENU_GestionarVentasActionPerformed(evt);
+            }
+        });
         menu_facturar.add(MENU_GestionarVentas);
 
         jMenuBar1.add(menu_facturar);
@@ -225,6 +256,11 @@ public class FRM_MENU extends javax.swing.JFrame {
         MENU_ReporteProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/producto.png"))); // NOI18N
         MENU_ReporteProductos.setText("Reportes Productos");
         MENU_ReporteProductos.setPreferredSize(new java.awt.Dimension(150, 50));
+        MENU_ReporteProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MENU_ReporteProductosActionPerformed(evt);
+            }
+        });
         menu_reportes.add(MENU_ReporteProductos);
 
         MENU_ReporteVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/carrito.png"))); // NOI18N
@@ -257,9 +293,14 @@ public class FRM_MENU extends javax.swing.JFrame {
         menu_cerrarSesion.setText("Cerrar Sesion");
         menu_cerrarSesion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
 
-        MENU_cerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user2.png"))); // NOI18N
+        MENU_cerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion.png"))); // NOI18N
         MENU_cerrarSesion.setText("Cerrar Sesion");
         MENU_cerrarSesion.setPreferredSize(new java.awt.Dimension(150, 50));
+        MENU_cerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MENU_cerrarSesionActionPerformed(evt);
+            }
+        });
         menu_cerrarSesion.add(MENU_cerrarSesion);
 
         jMenuBar1.add(menu_cerrarSesion);
@@ -282,22 +323,36 @@ public class FRM_MENU extends javax.swing.JFrame {
 
     private void menu_nuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_nuevoUsuarioActionPerformed
         // TODO add your handling code here:
+        InterUsuario interUsuario = new InterUsuario();
+        jDesktopPane_menu.add(interUsuario);
+        interUsuario.setVisible(true);
     }//GEN-LAST:event_menu_nuevoUsuarioActionPerformed
 
     private void MENU_nuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENU_nuevoClienteActionPerformed
         // TODO add your handling code here:
+        
+        InterCliente interCliente = new InterCliente();
+        jDesktopPane_menu.add(interCliente);
+        interCliente.setVisible(true);
     }//GEN-LAST:event_MENU_nuevoClienteActionPerformed
 
     private void MENU_ReporteVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENU_ReporteVentasActionPerformed
         // TODO add your handling code here:
+        Reportes reporte = new Reportes();
+        reporte.ReportesVentas();
     }//GEN-LAST:event_MENU_ReporteVentasActionPerformed
 
     private void MENU_ReporteClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENU_ReporteClientesActionPerformed
         // TODO add your handling code here:
+        Reportes reporte = new Reportes();
+        reporte.ReportesClientes();
     }//GEN-LAST:event_MENU_ReporteClientesActionPerformed
 
     private void Menu_reporteCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_reporteCategoriaActionPerformed
         // TODO add your handling code here:
+        Reportes reporte = new Reportes();
+        reporte.ReportesCategorias();
+        
     }//GEN-LAST:event_Menu_reporteCategoriaActionPerformed
 
     private void MENU_NuevoCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENU_NuevoCategoriaActionPerformed
@@ -327,6 +382,64 @@ public class FRM_MENU extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_nuevo_productoActionPerformed
+
+    private void MENU_GestionarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENU_GestionarProductoActionPerformed
+        // TODO add your handling code here:
+        InterGestionarProducto interGestionarProducto = new InterGestionarProducto();
+        jDesktopPane_menu.add(interGestionarProducto);
+        interGestionarProducto.setVisible(true);
+    }//GEN-LAST:event_MENU_GestionarProductoActionPerformed
+
+    private void gestionarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionarUsuariosActionPerformed
+        // TODO add your handling code here:
+        InterGestionarUsuario interGestionarUsuario = new InterGestionarUsuario();
+        jDesktopPane_menu.add(interGestionarUsuario);
+        interGestionarUsuario.setVisible(true);
+        
+    }//GEN-LAST:event_gestionarUsuariosActionPerformed
+
+    private void MENU_Actualizar_stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENU_Actualizar_stockActionPerformed
+        // TODO add your handling code here:
+        InterActualizarStock interActualizarStock = new InterActualizarStock();
+        jDesktopPane_menu.add(interActualizarStock);
+        interActualizarStock.setVisible(true);
+    }//GEN-LAST:event_MENU_Actualizar_stockActionPerformed
+
+    private void MENU_GestionarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENU_GestionarClientesActionPerformed
+        // TODO add your handling code here:
+        InterGestionarCliente interGestionarCliente = new InterGestionarCliente();
+        jDesktopPane_menu.add(interGestionarCliente);
+        interGestionarCliente.setVisible(true);
+        
+    }//GEN-LAST:event_MENU_GestionarClientesActionPerformed
+
+    private void MENU_nuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENU_nuevaVentaActionPerformed
+        // TODO add your handling code here:
+        InterFacturacion interFacturacion = new InterFacturacion();
+        jDesktopPane_menu.add(interFacturacion);
+        interFacturacion.setVisible(true);
+        
+    }//GEN-LAST:event_MENU_nuevaVentaActionPerformed
+
+    private void MENU_cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENU_cerrarSesionActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+        
+    }//GEN-LAST:event_MENU_cerrarSesionActionPerformed
+
+    private void MENU_GestionarVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENU_GestionarVentasActionPerformed
+        // TODO add your handling code here:
+        InterGestionarVentas interGestionarVentas = new InterGestionarVentas();
+        jDesktopPane_menu.add(interGestionarVentas);
+        interGestionarVentas.setVisible(true);
+        
+    }//GEN-LAST:event_MENU_GestionarVentasActionPerformed
+
+    private void MENU_ReporteProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENU_ReporteProductosActionPerformed
+        // TODO add your handling code here:
+        Reportes reporte = new Reportes();
+        reporte.ReportesProductos();
+    }//GEN-LAST:event_MENU_ReporteProductosActionPerformed
 
     /**
      * @param args the command line arguments

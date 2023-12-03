@@ -69,4 +69,71 @@ public class CTR_PRODUCTO {
         }
         return respuesta;
     }
+    
+    public boolean actualizar(PRODUCTO objeto, int idProducto) {
+        boolean respuesta = false;
+        Connection cn = conexion.conectar();
+        try {
+
+            PreparedStatement consulta = cn.prepareStatement("UPDATE PRODUCTO set Nombre=?, Cantidad = ?, Precio = ?, Descripcion= ?, PorcentajeIva = ?, ID_Categoria = ?, Estado = ? where ID_Producto ='" + idProducto + "'");
+            consulta.setString(1, objeto.getNombre());
+            consulta.setInt(2, objeto.getCantidad());
+            consulta.setDouble(3, objeto.getPrecio());
+            consulta.setString(4, objeto.getDescripcion());
+            consulta.setInt(5, objeto.getPorcentajeIVA());
+            consulta.setInt(6, objeto.getIdCategoria());
+            consulta.setInt(7, objeto.getEstado());
+           
+            if (consulta.executeUpdate() > 0) {
+                respuesta = true;
+            }
+            cn.close();
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar producto: " + e);
+        }
+        return respuesta;
+    }
+    
+    
+    /**
+     * **************************************************
+     * metodo para eliminar un producto
+     * **************************************************
+     */
+    public boolean eliminar(int idProducto) {
+        boolean respuesta = false;
+        Connection cn = conexion.conectar();
+        try {
+            PreparedStatement consulta = cn.prepareStatement(
+                    "delete from PRODUCTO where ID_Producto ='" + idProducto + "'");
+            consulta.executeUpdate();
+           
+            if (consulta.executeUpdate() > 0) {
+                respuesta = true;
+            }
+            cn.close();
+        } catch (SQLException e) {
+            System.out.println("Error al eliminar producto: " + e);
+        }
+        return respuesta;
+    }
+    
+    public boolean actualizarStock(PRODUCTO object, int idProducto) {
+        boolean respuesta = false;
+        Connection cn = conexion.conectar();
+        try {
+            PreparedStatement consulta = cn.prepareStatement("update PRODUCTO SET Cantidad=? where ID_Producto ='" + idProducto + "'");
+            consulta.setInt(1, object.getCantidad());
+
+            if (consulta.executeUpdate() > 0) {
+                respuesta = true;
+            }
+            cn.close();
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar stock del producto: " + e);
+        }
+        return respuesta;
+    }
+    
+    
 }
