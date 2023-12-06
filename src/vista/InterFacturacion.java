@@ -226,6 +226,11 @@ public class InterFacturacion extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable_productos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable_productosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable_productos);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 740, 190));
@@ -313,6 +318,7 @@ public class InterFacturacion extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void jButton_busca_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_busca_clienteActionPerformed
         // TODO add your handling code here:
         String clienteBuscar = txt_cliente_buscar.getText().trim();
@@ -366,7 +372,7 @@ public class InterFacturacion extends javax.swing.JInternalFrame {
                         if (cantidad <= cantidadProductoBDDD) {
 
                             subTotal = precioUnitario * cantidad;
-                            totalPagar = subTotal + descuento;
+                            totalPagar = subTotal + iva+descuento;
 
                             subTotal = (double) Math.round(subTotal * 100) / 100;
                             iva = (double) Math.round(iva * 100) / 100;
@@ -454,26 +460,7 @@ public class InterFacturacion extends javax.swing.JInternalFrame {
 
     int idArrayList = 0;
     
-    private void jTable_productospMouseClicked(java.awt.event.MouseEvent evt) {                                               
-        int fila_point = jTable_productos.rowAtPoint(evt.getPoint());
-        int columna_point = 0;
-        if (fila_point > -1) {
-            idArrayList = (int) modeloDatosProducto.getValueAt(fila_point, columna_point);
-        }
-        int opcion = JOptionPane.showConfirmDialog(null, "¿Eliminar Producto?");
-        //opciones de confir dialog - (si = 0; no = 1; cancel = 2; close = -1)
-        switch (opcion) {
-            case 0: //presione si
-                listaProductos.remove(idArrayList - 1);
-                this.CalcularTotalPagar();
-                this.listaTablaProducto();
-                break;
-            case 1: //presione no
-                break;
-            default://sea que presione cancel (2) o close (-1)
-                break;
-        }
-    }
+    
     
     private void jButton_RegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarVentaActionPerformed
         // TODO add your handling code here:
@@ -556,6 +543,28 @@ public class InterFacturacion extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_jButton_RegistrarVentaActionPerformed
+
+    private void jTable_productosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_productosMouseClicked
+        // TODO add your handling code here:
+        int fila_point = jTable_productos.rowAtPoint(evt.getPoint());
+        int columna_point = 0;
+        if (fila_point > -1) {
+            idArrayList = (int) modeloDatosProducto.getValueAt(fila_point, columna_point);
+        }
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Eliminar Producto?");
+        //opciones de confir dialog - (si = 0; no = 1; cancel = 2; close = -1)
+        switch (opcion) {
+            case 0: //presione si
+                listaProductos.remove(idArrayList - 1);
+                this.CalcularTotalPagar();
+                this.listaTablaProducto();
+                break;
+            case 1: //presione no
+                break;
+            default://sea que presione cancel (2) o close (-1)
+                break;
+        }
+    }//GEN-LAST:event_jTable_productosMouseClicked
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

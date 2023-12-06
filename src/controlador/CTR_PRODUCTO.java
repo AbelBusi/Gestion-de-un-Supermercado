@@ -75,14 +75,13 @@ public class CTR_PRODUCTO {
         Connection cn = conexion.conectar();
         try {
 
-            PreparedStatement consulta = cn.prepareStatement("UPDATE PRODUCTO set Nombre=?, Cantidad = ?, Precio = ?, Descripcion= ?, PorcentajeIva = ?, ID_Categoria = ?, Estado = ? where ID_Producto ='" + idProducto + "'");
+            PreparedStatement consulta = cn.prepareStatement("UPDATE PRODUCTO set Nombre=?, Precio = ?, Descripcion= ?, PorcentajeIva = ?, ID_Categoria = ?, Estado = ? where ID_Producto ='" + idProducto + "'");
             consulta.setString(1, objeto.getNombre());
-            consulta.setInt(2, objeto.getCantidad());
-            consulta.setDouble(3, objeto.getPrecio());
-            consulta.setString(4, objeto.getDescripcion());
-            consulta.setInt(5, objeto.getPorcentajeIVA());
-            consulta.setInt(6, objeto.getIdCategoria());
-            consulta.setInt(7, objeto.getEstado());
+            consulta.setDouble(2, objeto.getPrecio());
+            consulta.setString(3, objeto.getDescripcion());
+            consulta.setInt(4, objeto.getPorcentajeIVA());
+            consulta.setInt(5, objeto.getIdCategoria());
+            consulta.setInt(6, objeto.getEstado());
            
             if (consulta.executeUpdate() > 0) {
                 respuesta = true;

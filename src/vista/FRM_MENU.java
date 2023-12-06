@@ -1,6 +1,7 @@
 package vista;
 
 import controlador.Reportes;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -29,14 +30,8 @@ public class FRM_MENU extends javax.swing.JFrame {
         
         int ancho =java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
         int alto =java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
-        
         this.jDesktopPane_menu.setBounds(0,0,ancho,(alto-100));
         this.add(jDesktopPane_menu);
-        
-        
-        
-        
-        
        
     }
     
@@ -82,6 +77,7 @@ public class FRM_MENU extends javax.swing.JFrame {
         MENU_cerrarSesion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(getIconImage());
         setIconImages(getIconImages());
 

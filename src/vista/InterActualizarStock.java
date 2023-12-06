@@ -125,7 +125,7 @@ public class InterActualizarStock extends javax.swing.JInternalFrame {
                         int stockActual = Integer.parseInt(txt_cantidad_actual.getText().trim());
                         int stockNuevo = Integer.parseInt(txt_cantidad_nueva.getText().trim());
 
-                        stockNuevo = stockActual + stockNuevo;
+                        stockNuevo =  stockNuevo;
                         producto.setCantidad(stockNuevo);
                         if (controlProducto.actualizarStock(producto, idProducto)) {
                             JOptionPane.showMessageDialog(null, "Stock Actualizado");

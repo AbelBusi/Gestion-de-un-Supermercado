@@ -69,10 +69,10 @@ public class InterGestionarProducto extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txt_precio = new javax.swing.JTextField();
-        txt_cantidad = new javax.swing.JTextField();
         jComboBox_iva = new javax.swing.JComboBox<>();
         jComboBox_categoria = new javax.swing.JComboBox<>();
         txt_descripcion = new javax.swing.JTextField();
+        txt_cantidad = new javax.swing.JTextField();
         jLabel_wallpaper = new javax.swing.JLabel();
 
         setClosable(true);
@@ -171,9 +171,6 @@ public class InterGestionarProducto extends javax.swing.JInternalFrame {
         txt_precio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jPanel3.add(txt_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 170, -1));
 
-        txt_cantidad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel3.add(txt_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 170, -1));
-
         jComboBox_iva.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jComboBox_iva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione iva:", "No grava iva", "12%", "14%" }));
         jPanel3.add(jComboBox_iva, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 150, -1));
@@ -184,6 +181,10 @@ public class InterGestionarProducto extends javax.swing.JInternalFrame {
 
         txt_descripcion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jPanel3.add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 170, -1));
+
+        txt_cantidad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_cantidad.setEnabled(false);
+        jPanel3.add(txt_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 43, 170, 20));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 870, 100));
         getContentPane().add(jLabel_wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 470));
@@ -236,7 +237,7 @@ public class InterGestionarProducto extends javax.swing.JInternalFrame {
                             producto.setPrecio(Precio);
                         }
 
-                        producto.setDescripcion(txt_cantidad.getText().trim());
+                        producto.setDescripcion(txt_descripcion.getText().trim());
                         //Porcentaje IVA
                         if (iva.equalsIgnoreCase("No grava iva")) {
                             producto.setPorcentajeIVA(0);
@@ -319,6 +320,7 @@ public class InterGestionarProducto extends javax.swing.JInternalFrame {
         txt_nombre.setText("");
         txt_cantidad.setText("");
         txt_precio.setText("");
+        txt_descripcion.setText("");
         jComboBox_iva.setSelectedItem("Seleccione iva:");
         jComboBox_categoria.setSelectedItem("Seleccione categoria:");
     }
